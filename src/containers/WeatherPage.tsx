@@ -2,7 +2,7 @@ import React from "react";
 
 import { useWeatherApi } from "../api/request";
 
-import WeatherApiModel from "../models/WeatherApiModel";
+import Dropdown from "../components/Dropdown";
 
 import "../styles/WeatherPage.css";
 
@@ -12,6 +12,7 @@ const WeatherPage = () => {
   return (
     <div>
       <h1>Weather App</h1>
+      <Dropdown />
       {data && data.city.country}
     </div>
   );

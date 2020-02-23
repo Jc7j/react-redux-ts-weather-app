@@ -13,11 +13,10 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const logger = createLogger();
 
-const INITIAL_STATE = {};
+// const INITIAL_STATE = {};
 
 const store = createStore(
   RootReducer,
-  INITIAL_STATE,
   composeEnhancers(applyMiddleware(logger))
 );
 

@@ -1,24 +1,76 @@
-import { createReducer, StateType } from "typesafe-actions";
+import { createReducer, StateType, action } from "typesafe-actions";
+import { selectedCity } from "./actions";
 
-import { selectCountry, SelectionActionCreators } from "./actions";
+import {
+  selectedCountry,
+  selectedState,
+  SelectionActionCreators
+} from "./actions";
 
 type SelectionsState = {
-  selectedCountry: string;
+  selectedCountry: {
+    countryId: string;
+    countryName: string;
+  };
+  selectedState: {
+    stateId: string;
+    stateName: string;
+  };
+  selectedCity: {
+    cityId: string;
+    cityName: string;
+  };
 };
 
 const INITIAL_STATE = {
-  selectedCountry: ""
+  selectedCountry: {
+    countryId: "",
+    countryName: ""
+  },
+  selectedState: {
+    stateId: "",
+    stateName: ""
+  },
+  selectedCity: {
+    cityId: "",
+    cityName: ""
+  }
 };
 
 export const selectionsReducer = createReducer<
   SelectionsState,
   SelectionActionCreators
->(INITIAL_STATE).handleAction(selectCountry, (state, action) => {
-  return {
-    ...state,
-    selectCountry: action.payload
-  };
-});
+>(INITIAL_STATE)
+  .handleAction(selectedCountry, (state, action) => {
+    // const { countryId, countryName } = action;
+    console.log(action);
+
+    return {
+      ...state,
+      selectedCountry: {
+        countryId: action.payload,
+        countryName: action.meta
+      }
+    };
+  })
+  .handleAction(selectedState, (state, action) => {
+    return {
+      ...state,
+      selectedState: {
+        stateId: action.payload,
+        stateName: action.meta
+      }
+    };
+  })
+  .handleAction(selectedCity, (state, action) => {
+    return {
+      ...state,
+      selectedCity: {
+        cityId: action.payload,
+        cityName: action.meta
+      }
+    };
+  });
 
 // const selectionsReducer = combineReducers({
 //   selections

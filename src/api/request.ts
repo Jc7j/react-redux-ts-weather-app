@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import WeatherApiModel from "../models/WeatherApiModel";
+import { WeatherApiModel } from "../models/WeatherApiModel";
 
 export const useWeatherApi = (
   cityName: string,

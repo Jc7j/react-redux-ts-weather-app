@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { WeatherApiModel } from "../models/WeatherApiModel";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
+import { WeatherApiModel } from '../models/WeatherApiModel';
 
 export const useWeatherApi = (
   cityName: string,
@@ -12,7 +13,7 @@ export const useWeatherApi = (
     const fetchData = async (): Promise<any | undefined> => {
       try {
         const result = await axios({
-          method: "get",
+          method: 'get',
           url: `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},${countryCode}&APPID=${process.env.REACT_APP_WEATHER_APP_KEY}`
         });
 

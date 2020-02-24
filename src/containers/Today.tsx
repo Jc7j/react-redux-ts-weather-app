@@ -1,5 +1,5 @@
-import React from "react";
-import "../styles/Today.css";
+import React from 'react';
+import 'styles/Today.css';
 
 const Today = () => {
   return (

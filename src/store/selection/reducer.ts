@@ -1,11 +1,11 @@
-import { createReducer, StateType, action } from "typesafe-actions";
-import { selectedCity } from "./actions";
+import { createReducer, StateType } from 'typesafe-actions';
 
 import {
   selectedCountry,
   selectedState,
-  SelectionActionCreators
-} from "./actions";
+  SelectionActionCreators,
+  selectedCity
+} from './actions';
 
 type SelectionsState = {
   selectedCountry: {
@@ -24,16 +24,16 @@ type SelectionsState = {
 
 const INITIAL_STATE = {
   selectedCountry: {
-    countryId: "231",
-    countryName: "United States"
+    countryId: '231',
+    countryName: 'United States'
   },
   selectedState: {
-    stateId: "",
-    stateName: ""
+    stateId: '',
+    stateName: ''
   },
   selectedCity: {
-    cityId: "",
-    cityName: ""
+    cityId: '',
+    cityName: ''
   }
 };
 

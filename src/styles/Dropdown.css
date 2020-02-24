@@ -4,3 +4,7 @@
   flex-grow: 1;
   justify-content: space-around;
 }
+
+.selectStyles {
+  width: 30%;
+}

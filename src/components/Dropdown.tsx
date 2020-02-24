@@ -8,6 +8,7 @@ import {
   selectedState
 } from "../store/selection/actions";
 import "../styles/Dropdown.css";
+import classNames from "classnames";
 
 interface DropdownProps {
   countryId: string;
@@ -26,7 +27,7 @@ const INITAL_STATE: SelectOptions = {
 const Dropdown: React.FC<DropdownProps> = props => {
   const { countryId, stateId } = props;
 
-  const [countries, setCountries] = useState([{ value: "", label: "" }]);
+  const [countries, setCountries] = useState([{ ...INITAL_STATE, label: "" }]);
   const [selectedCountryOption] = useState(INITAL_STATE);
   const [selectedStateOption] = useState({
     ...INITAL_STATE,
@@ -97,6 +98,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
   return (
     <div className="drowndownContainer">
       <Select
+        className="selectStyles"
         placeholder={selectedCountryOption.label}
         onChange={selectedOption =>
           handleSelectOnChange(selectedOption, "country")
@@ -105,7 +107,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
         type="search"
       />
       <Select
-        className="countrySelector"
+        className="selectStyles"
         placeholder={selectedStateOption.label}
         onChange={selectedOption =>
           handleSelectOnChange(selectedOption, "state")
@@ -114,7 +116,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
         type="search"
       />
       <Select
-        className="countrySelector"
+        className="selectStyles"
         placeholder={selectedCityOption.label}
         onChange={selectedOption =>
           handleSelectOnChange(selectedOption, "city")

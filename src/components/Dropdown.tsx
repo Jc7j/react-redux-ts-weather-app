@@ -97,6 +97,7 @@ const Dropdown = (props: DropdownProps) => {
   return (
     <div className="drowndownContainer">
       <Select
+        defaultValue={{ value: "231", label: "United States" }}
         className="selectStyles"
         placeholder={selectedCountryOption.label}
         onChange={selectedOption =>
@@ -106,6 +107,7 @@ const Dropdown = (props: DropdownProps) => {
         type="search"
       />
       <Select
+        autoFocus
         className="selectStyles"
         placeholder={selectedStateOption.label}
         onChange={selectedOption =>

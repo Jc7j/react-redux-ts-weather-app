@@ -24,8 +24,8 @@ type SelectionsState = {
 
 const INITIAL_STATE = {
   selectedCountry: {
-    countryId: "",
-    countryName: ""
+    countryId: "231",
+    countryName: "United States"
   },
   selectedState: {
     stateId: "",

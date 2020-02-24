@@ -15,6 +15,9 @@ const Forecast = () => {
   return (
     <div className="forecastContainer">
       <Dropdown countryId={countryId} stateId={stateId} />
+      <h2>
+        Weather <strong>Forecast</strong>
+      </h2>
     </div>
   );
 };

@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .selectStyles {
   width: 30%;
   position: absolute;
+  letter-spacing: 1px;
 }

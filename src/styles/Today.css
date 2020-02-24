@@ -1,0 +1,10 @@
+.todayContainer {
+  background-color: #3c3b50;
+  border-radius: 0 1.2em 1.2em 0;
+  width: 24em;
+}
+
+.todayInnerContainer {
+  font-weight: bold;
+  padding: 2em;
+}

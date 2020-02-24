@@ -8,7 +8,6 @@ import {
   selectedState
 } from "../store/selection/actions";
 import "../styles/Dropdown.css";
-import classNames from "classnames";
 
 interface DropdownProps {
   countryId: string;
@@ -24,7 +23,7 @@ const INITAL_STATE: SelectOptions = {
   label: "Select a Country"
 };
 
-const Dropdown: React.FC<DropdownProps> = props => {
+const Dropdown = (props: DropdownProps) => {
   const { countryId, stateId } = props;
 
   const [countries, setCountries] = useState([{ ...INITAL_STATE, label: "" }]);

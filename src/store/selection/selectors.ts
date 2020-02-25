@@ -1,8 +1,8 @@
 import get from 'lodash/get';
-import { SelectionState } from './reducer';
-import { createSelector } from 'reselect';
 import { Selections } from 'MyModels';
-import { selectedCity } from './actions';
+import { createSelector } from 'reselect';
+
+import { SelectionState } from './reducer';
 
 export const getRootSelectionsSelector = (state: SelectionState) => {
   return get(state, 'selections');

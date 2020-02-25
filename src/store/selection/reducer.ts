@@ -1,7 +1,7 @@
 import { createReducer, StateType } from 'typesafe-actions';
-import { selectedCity } from './actions';
 
 import {
+  selectedCity,
   selectedCountry,
   selectedState,
   SelectionActionCreators

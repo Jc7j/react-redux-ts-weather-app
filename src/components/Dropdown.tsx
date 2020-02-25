@@ -2,12 +2,13 @@ import csc from 'country-state-city';
 import React, { memo, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select, { ValueType } from 'react-select';
+
 import {
   selectedCity,
   selectedCountry,
   selectedState
-} from '../store/selection/actions';
-import '../styles/Dropdown.css';
+} from 'store/selection/actions';
+import 'styles/Dropdown.css';
 
 interface DropdownProps {
   countryId: string;

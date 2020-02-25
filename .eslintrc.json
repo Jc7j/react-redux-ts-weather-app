@@ -4,9 +4,15 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:import/typescript"
   ],
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "eslint-plugin-import-helpers"
+  ],
   "env": {
     "browser": true,
     "jasmine": true,
@@ -15,7 +21,27 @@
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
     "@typescript-eslint/explicit-member-accessibility": 0,
-    "@typescript-eslint/explicit-function-return-type": 0
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-use-before-define": "error",
+    "import-helpers/order-imports": [
+      "error",
+      {
+        "groups": [
+          "module",
+          "/^hooks/",
+          "/^store/",
+          "/^api/",
+          "/^models/",
+          "/^containers/",
+          "/^components/",
+          ["index", "parent", "sibling"],
+          ["/[svg]{3,}/"],
+          ["/[css]{3,}/"]
+        ],
+        "newlinesBetween": "always",
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
   },
   "settings": {
     "react": {

@@ -1,5 +1,6 @@
 declare module 'MyModels' {
   export type Selections = {
+    countryCode: string;
     selectedCountry: {
       countryId: string;
       countryName: string;

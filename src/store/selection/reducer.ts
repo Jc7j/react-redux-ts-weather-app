@@ -3,11 +3,13 @@ import { createReducer, StateType } from 'typesafe-actions';
 import {
   selectedCity,
   selectedCountry,
+  selectedCountryCode,
   selectedState,
   SelectionActionCreators
 } from './actions';
 
 type SelectionsState = {
+  countryCode: string;
   selectedCountry: {
     countryId: string;
     countryName: string;
@@ -23,6 +25,7 @@ type SelectionsState = {
 };
 
 const INITIAL_STATE = {
+  countryCode: 'US',
   selectedCountry: {
     countryId: '231',
     countryName: 'United States'
@@ -42,15 +45,18 @@ export const selectionsReducer = createReducer<
   SelectionActionCreators
 >(INITIAL_STATE)
   .handleAction(selectedCountry, (state, action) => {
-    // const { countryId, countryName } = action;
-    console.log(action);
-
     return {
       ...state,
       selectedCountry: {
         countryId: action.payload,
         countryName: action.meta
       }
+    };
+  })
+  .handleAction(selectedCountryCode, (state, action) => {
+    return {
+      ...state,
+      countryCode: action.payload
     };
   })
   .handleAction(selectedState, (state, action) => {
@@ -71,10 +77,6 @@ export const selectionsReducer = createReducer<
       }
     };
   });
-
-// const selectionsReducer = combineReducers({
-//   selections
-// });
 
 export default selectionsReducer;
 export type SelectionState = StateType<typeof selectionsReducer>;

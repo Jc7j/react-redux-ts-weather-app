@@ -6,6 +6,7 @@ import Select, { ValueType } from 'react-select';
 import {
   selectedCity,
   selectedCountry,
+  selectedCountryCode,
   selectedState
 } from 'store/selection/actions';
 import 'styles/Dropdown.css';
@@ -85,12 +86,27 @@ const Dropdown = (props: DropdownProps) => {
     return options;
   };
 
+  /**
+   * After selecting country, state or city, it'll dispatch the value and label.
+   * Country gets the code and dispatches the value, label and code.
+   */
   const handleSelectOnChange = (
     selectedOption: ValueType<SelectOptions>,
     id?: string
   ) => {
     const { value, label } = selectedOption as SelectOptions;
-    if (id === 'country') dispatch(selectedCountry(value, label));
+    if (id === 'country') {
+      const allCountries = csc.getAllCountries();
+      const countryCode = allCountries
+        .map(country => {
+          if (country.name === label) {
+            return country.sortname;
+          }
+        })
+        .join('');
+      dispatch(selectedCountryCode(countryCode));
+      dispatch(selectedCountry(value, label));
+    }
     if (id === 'state') dispatch(selectedState(value, label));
     if (id === 'city') dispatch(selectedCity(value, label));
   };

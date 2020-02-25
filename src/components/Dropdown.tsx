@@ -1,13 +1,13 @@
-import csc from "country-state-city";
-import React, { memo, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import Select, { ValueType } from "react-select";
+import csc from 'country-state-city';
+import React, { memo, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import Select, { ValueType } from 'react-select';
 import {
   selectedCity,
   selectedCountry,
   selectedState
-} from "../store/selection/actions";
-import "../styles/Dropdown.css";
+} from '../store/selection/actions';
+import '../styles/Dropdown.css';
 
 interface DropdownProps {
   countryId: string;
@@ -19,22 +19,22 @@ type SelectOptions = {
 };
 
 const INITAL_STATE: SelectOptions = {
-  value: "",
-  label: "Select a Country"
+  value: '',
+  label: 'Select a Country'
 };
 
 const Dropdown = (props: DropdownProps) => {
   const { countryId, stateId } = props;
 
-  const [countries, setCountries] = useState([{ ...INITAL_STATE, label: "" }]);
+  const [countries, setCountries] = useState([{ ...INITAL_STATE, label: '' }]);
   const [selectedCountryOption] = useState(INITAL_STATE);
   const [selectedStateOption] = useState({
     ...INITAL_STATE,
-    label: "Select a State"
+    label: 'Select a State'
   });
   const [selectedCityOption] = useState({
     ...INITAL_STATE,
-    label: "Select a City"
+    label: 'Select a City'
   });
 
   const dispatch = useDispatch();
@@ -89,19 +89,19 @@ const Dropdown = (props: DropdownProps) => {
     id?: string
   ) => {
     const { value, label } = selectedOption as SelectOptions;
-    if (id === "country") dispatch(selectedCountry(value, label));
-    if (id === "state") dispatch(selectedState(value, label));
-    if (id === "city") dispatch(selectedCity(value, label));
+    if (id === 'country') dispatch(selectedCountry(value, label));
+    if (id === 'state') dispatch(selectedState(value, label));
+    if (id === 'city') dispatch(selectedCity(value, label));
   };
 
   return (
     <div className="drowndownContainer">
       <Select
-        defaultValue={{ value: "231", label: "United States" }}
+        defaultValue={{ value: '231', label: 'United States' }}
         className="selectStyles"
         placeholder={selectedCountryOption.label}
         onChange={selectedOption =>
-          handleSelectOnChange(selectedOption, "country")
+          handleSelectOnChange(selectedOption, 'country')
         }
         options={countries}
         type="search"
@@ -111,7 +111,7 @@ const Dropdown = (props: DropdownProps) => {
         className="selectStyles"
         placeholder={selectedStateOption.label}
         onChange={selectedOption =>
-          handleSelectOnChange(selectedOption, "state")
+          handleSelectOnChange(selectedOption, 'state')
         }
         options={getStatesOfCountry()}
         type="search"
@@ -120,7 +120,7 @@ const Dropdown = (props: DropdownProps) => {
         className="selectStyles"
         placeholder={selectedCityOption.label}
         onChange={selectedOption =>
-          handleSelectOnChange(selectedOption, "city")
+          handleSelectOnChange(selectedOption, 'city')
         }
         options={getCitiesOfState()}
         type="search"

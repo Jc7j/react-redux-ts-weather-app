@@ -1,7 +1,7 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import { createLogger } from "redux-logger";
+import { createStore, applyMiddleware, compose } from 'redux';
+import { createLogger } from 'redux-logger';
 
-import RootReducer from "./RootReducer";
+import RootReducer from './RootReducer';
 
 declare global {
   interface Window {

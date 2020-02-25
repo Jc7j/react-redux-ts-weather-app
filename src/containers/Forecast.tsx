@@ -1,14 +1,13 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { useSelector } from "react-redux";
 
+import Dropdown from "../components/Dropdown";
 import {
   selectedCountrySelector,
   selectedStateSelector
-} from 'store/selection/selectors';
+} from "../store/selection/selectors";
 
-import Dropdown from 'components/Dropdown';
-
-import 'styles/Forecast.css';
+import "../styles/Forecast.css";
 
 const Forecast = () => {
   const { countryId } = useSelector(selectedCountrySelector);

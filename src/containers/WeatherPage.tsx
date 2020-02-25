@@ -1,14 +1,12 @@
-import React from 'react';
+import React from "react";
+import { useWeatherApi } from "../api/request";
 
-// import { useWeatherApi } from 'api/request';
-
-import Forecast from './Forecast';
-import Today from './Today';
-
-import 'styles/WeatherPage.css';
+import "../styles/WeatherPage.css";
+import Today from "./Today";
+import Forecast from "./Forecast";
 
 const WeatherPage = () => {
-  // const [{ data }] = useWeatherApi('Las%20Vegas', 'US');
+  const [{ data }] = useWeatherApi("Las%20Vegas", "US");
 
   return (
     <div className="weatherPageContainer">

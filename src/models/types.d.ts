@@ -1,4 +1,4 @@
-declare module 'MyModels' {
+declare module "MyModels" {
   export type Selections = {
     selectedCountry: {
       countryId: string;

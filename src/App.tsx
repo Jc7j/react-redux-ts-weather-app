@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import WeatherPage from './containers/WeatherPage';
+import WeatherPage from "./containers/WeatherPage";
 
-import './App.css';
+import "./App.css";
 
-require('dotenv').config();
+require("dotenv").config();
 
 const App = () => {
   return (

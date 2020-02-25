@@ -1,3 +1,4 @@
+import { Selections } from 'MyModels';
 import { createReducer, StateType } from 'typesafe-actions';
 
 import {
@@ -7,22 +8,6 @@ import {
   selectedState,
   SelectionActionCreators
 } from './actions';
-
-type SelectionsState = {
-  countryCode: string;
-  selectedCountry: {
-    countryId: string;
-    countryName: string;
-  };
-  selectedState: {
-    stateId: string;
-    stateName: string;
-  };
-  selectedCity: {
-    cityId: string;
-    cityName: string;
-  };
-};
 
 const INITIAL_STATE = {
   countryCode: 'US',
@@ -41,7 +26,7 @@ const INITIAL_STATE = {
 };
 
 export const selectionsReducer = createReducer<
-  SelectionsState,
+  Selections,
   SelectionActionCreators
 >(INITIAL_STATE)
   .handleAction(selectedCountry, (state, action) => {

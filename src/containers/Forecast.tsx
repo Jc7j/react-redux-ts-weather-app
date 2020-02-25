@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { addingForecast } from 'store/forecast/actions';
 import {
   selectedCountryCodeSelector,
   selectedCountrySelector,
@@ -20,10 +21,14 @@ const Forecast = () => {
   const countryId = useSelector(selectedCountrySelector);
   const cityName = useSelector(selectedCitySelector);
 
+  const dispatch = useDispatch();
+
   const [{ data }] = useWeatherApi(
     cityName.cityName.replace(' ', '%20'),
     countryCode
   );
+
+  dispatch(addingForecast(data));
 
   return (
     <div className="forecastContainer">

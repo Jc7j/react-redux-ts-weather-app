@@ -3,9 +3,25 @@
   border-radius: 0 1.2em 1.2em 0;
   width: 50em;
   color: white;
+  position: absolute;
 }
 
 .todayInnerContainer {
-  font-weight: bold;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.todayHeader {
+  padding: 2em;
+}
+
+.todayBody {
+}
+
+.todayFooter {
   padding: 2em;
 }

@@ -1,14 +1,22 @@
 import csc from 'country-state-city';
 import React, { memo, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Select, { ValueType } from 'react-select';
 
+import { addingForecast } from 'store/forecast/actions';
 import {
   selectedCity,
   selectedCountry,
   selectedCountryCode,
   selectedState
 } from 'store/selection/actions';
+import {
+  selectedCountryCodeSelector,
+  selectedCitySelector
+} from 'store/selection/selectors';
+
+import { useWeatherApi } from 'api/request';
+
 import 'styles/Dropdown.css';
 
 interface DropdownProps {
@@ -20,58 +28,66 @@ type SelectOptions = {
   label: string;
 };
 
-const INITAL_STATE: SelectOptions = {
+const INITIAL_STATE: SelectOptions = {
   value: '',
   label: 'Select a Country'
 };
 
 const Dropdown = (props: DropdownProps) => {
   const { countryId, stateId } = props;
+  const dispatch = useDispatch();
 
-  const [countries, setCountries] = useState([{ ...INITAL_STATE, label: '' }]);
-  const [selectedCountryOption] = useState(INITAL_STATE);
+  const countryCode = useSelector(selectedCountryCodeSelector);
+  const city = useSelector(selectedCitySelector);
+
+  const [countries, setCountries] = useState([{ ...INITIAL_STATE, label: '' }]);
+  const [states, setStates] = useState([{ ...INITIAL_STATE }]);
+
+  const [selectedCountryOption] = useState(INITIAL_STATE);
   const [selectedStateOption] = useState({
-    ...INITAL_STATE,
+    ...INITIAL_STATE,
     label: 'Select a State'
   });
   const [selectedCityOption] = useState({
-    ...INITAL_STATE,
+    ...INITIAL_STATE,
     label: 'Select a City'
   });
 
-  const dispatch = useDispatch();
-
+  /**
+   * Initially set the country and state options on mount.
+   */
   useEffect(() => {
     try {
       const allCountries = csc.getAllCountries();
-      const options: SelectOptions[] = [];
+      const countryOptions: SelectOptions[] = [];
+
+      const allStatesOfCountry = csc.getStatesOfCountry(countryId);
+      const stateOptions: SelectOptions[] = [];
+
       allCountries.map(country =>
-        options.push({
+        countryOptions.push({
           value: country.id,
           label: country.name
         })
       );
 
-      setCountries(options);
+      allStatesOfCountry.map(state =>
+        stateOptions.push({
+          value: state.id,
+          label: state.name
+        })
+      );
+
+      setCountries(countryOptions);
+      setStates(stateOptions);
     } catch (e) {
       console.log(e);
     }
   }, []);
 
-  const getStatesOfCountry = () => {
-    const allStatesOfCountry = csc.getStatesOfCountry(countryId);
-    const options: SelectOptions[] = [];
-
-    allStatesOfCountry.map(state =>
-      options.push({
-        value: state.id,
-        label: state.name
-      })
-    );
-
-    return options;
-  };
-
+  /**
+   * To grab all the cities after setting the state
+   */
   const getCitiesOfState = () => {
     const allCitiesOfState = csc.getCitiesOfState(stateId);
     const options: SelectOptions[] = [];
@@ -84,6 +100,17 @@ const Dropdown = (props: DropdownProps) => {
     );
 
     return options;
+  };
+
+  /**
+   * This is to handle the onClick for the button
+   */
+  const [{ data }] = useWeatherApi(
+    city.cityName.replace(' ', '%20'),
+    countryCode
+  );
+  const onClickHandler = () => {
+    dispatch(addingForecast(data));
   };
 
   /**
@@ -130,7 +157,7 @@ const Dropdown = (props: DropdownProps) => {
         onChange={selectedOption =>
           handleSelectOnChange(selectedOption, 'state')
         }
-        options={getStatesOfCountry()}
+        options={states}
         type="search"
       />
       <Select
@@ -142,6 +169,9 @@ const Dropdown = (props: DropdownProps) => {
         options={getCitiesOfState()}
         type="search"
       />
+      <button className="dropdownButton" onClick={onClickHandler}>
+        Check
+      </button>
     </div>
   );
 };

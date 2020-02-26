@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { addingForecast } from 'store/forecast/actions';
+import { forecastCitySelector } from 'store/forecast/selectors';
 import {
   selectedCountryCodeSelector,
   selectedCountrySelector,
@@ -19,16 +20,19 @@ const Forecast = () => {
   const stateId = useSelector(selectedStateSelector);
   const countryCode = useSelector(selectedCountryCodeSelector);
   const countryId = useSelector(selectedCountrySelector);
-  const cityName = useSelector(selectedCitySelector);
+  const city = useSelector(selectedCitySelector);
 
   const dispatch = useDispatch();
 
   const [{ data }] = useWeatherApi(
-    cityName.cityName.replace(' ', '%20'),
+    city.cityName.replace(' ', '%20'),
     countryCode
   );
 
-  dispatch(addingForecast(data));
+  /**
+   * @TODO Need a better check so only dispatch once. Maybe add a button...
+   */
+  if (city.cityName !== '') dispatch(addingForecast(data));
 
   return (
     <div className="forecastContainer">

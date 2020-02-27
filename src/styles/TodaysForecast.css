@@ -1,3 +1,8 @@
 .todaysForecastContainer {
   position: relative;
+  align-self: center;
+}
+
+.subheadingText {
+  color: #b5aabb;
 }

@@ -4,7 +4,7 @@ import TodaysForecast from 'components/TodaysForecast';
 
 import 'styles/Today.css';
 
-const Today = () => {
+const TodayPage = () => {
   return (
     <div className="todayContainer">
       <div className="todayInnerContainer">
@@ -18,4 +18,4 @@ const Today = () => {
   );
 };
 
-export default Today;
+export default TodayPage;

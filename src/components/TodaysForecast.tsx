@@ -5,7 +5,7 @@ import 'styles/TodaysForecast.css';
 const TodaysForecast = () => {
   return (
     <div className="todaysForecastContainer">
-      <h2>Todaydsds</h2>
+      <h2>Todaffydsds</h2>
     </div>
   );
 };

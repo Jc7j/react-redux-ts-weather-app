@@ -12,6 +12,8 @@ import {
   selectedStateSelector
 } from 'store/selection/selectors';
 
+import SupTag from './SupTag';
+
 import 'styles/TodaysForecast.css';
 
 const TodaysForecast = () => {
@@ -27,24 +29,26 @@ const TodaysForecast = () => {
 
   return (
     <div className="todaysForecastContainer">
-      {icon && <img src={weatherIconDisplay(icon)} />} <h3>Today</h3>
+      <img alt="Weather Icon" src={weatherIconDisplay(icon)} />
+      <h3>Today</h3>
       <p className="subheadingText">{format(new Date(), 'eee e, LLL')}</p>
-      {temp && (
-        <>
-          <div>
-            {selectedCelcius
-              ? kelvinToCelcius(temp, 0)
-              : kelvinToFahrenheit(temp, 0)}
-          </div>
-        </>
-      )}
-      {city.name && stateName && (
-        <p className="subheadingText">
-          {city.name}, {stateName}
-        </p>
-      )}
+      <span className="todaysTemp">
+        {selectedCelcius
+          ? kelvinToCelcius(temp, 0)
+          : kelvinToFahrenheit(temp, 0)}
+        <SupTag
+          oTagSize={1.5}
+          oTagTopPos={1}
+          tempLetterSize={2}
+          tempLetterTopPos={1}
+        />
+      </span>
+      <p className="subheadingText">
+        {city.name}, {stateName}
+      </p>
       <p>
-        {feels_like && selectedCelcius
+        Feels Like
+        {selectedCelcius
           ? kelvinToCelcius(feels_like, 0)
           : kelvinToFahrenheit(feels_like, 0)}
       </p>

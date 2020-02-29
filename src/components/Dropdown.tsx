@@ -83,7 +83,7 @@ const Dropdown = (props: DropdownProps) => {
     } catch (e) {
       console.log(e);
     }
-  }, []);
+  }, [countryId]);
 
   /**
    * To grab all the cities after setting the state

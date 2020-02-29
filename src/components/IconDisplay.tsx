@@ -6,17 +6,18 @@ import 'styles/IconDisplay.css';
 interface IconDisplayProps {
   icon: string;
   top: number;
+  left?: number;
 }
 
 const IconDisplay = (props: IconDisplayProps) => {
-  const { icon, top } = props;
+  const { left, icon, top } = props;
 
   return (
     <img
       alt="Weather Icon"
       className="iconDisplayContainer"
       src={weatherIconDisplay(icon)}
-      style={{ top: `${top}rem` }}
+      style={{ top: `${top}rem`, left: `${left}rem` }}
     />
   );
 };

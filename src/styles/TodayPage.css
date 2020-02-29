@@ -16,7 +16,10 @@
 }
 
 .todayHeader {
+  position: relative;
   padding: 2em;
+  font-size: 2em;
+  top: -3rem;
 }
 
 .todayBody {

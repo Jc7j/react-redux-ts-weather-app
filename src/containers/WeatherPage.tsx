@@ -1,13 +1,13 @@
 import React from 'react';
 
 import '../styles/WeatherPage.css';
-import Forecast from './Forecast';
+import ForecastPage from './ForecastPage';
 import TodayPage from './TodayPage';
 
 const WeatherPage = () => {
   return (
     <div className="weatherPageContainer">
-      <Forecast />
+      <ForecastPage />
       <TodayPage />
     </div>
   );

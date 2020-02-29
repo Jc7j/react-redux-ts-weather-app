@@ -23,14 +23,14 @@ const TodaysForecast = () => {
   const { stateName } = useSelector(selectedStateSelector);
   const forecastList = useSelector(forecastListSelector);
 
-  if (forecastList.length <= 0) return null;
+  if (forecastList.length <= 0 || forecastList === undefined) return null;
 
   const { temp, feels_like } = forecastList[0].main;
   const { icon } = forecastList[0].weather[0];
 
   return (
     <div className="todaysForecastContainer">
-      <IconDisplay top={1.5} icon={icon} />
+      <IconDisplay top={1.5} icon={icon} left={0.3} />
       <p className="subheadingText">{format(new Date(), 'eee e, LLL')}</p>
       <span className="todaysTemp">
         {selectedCelcius

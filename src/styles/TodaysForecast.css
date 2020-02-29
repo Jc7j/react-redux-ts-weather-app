@@ -6,3 +6,16 @@
 .subheadingText {
   color: #b5aabb;
 }
+
+.todaysTemp {
+  font-size: 6em;
+  letter-spacing: 3px;
+}
+
+img {
+  display: inline-block;
+}
+
+h3 {
+  display: inline-block;
+}

@@ -4,3 +4,9 @@
   padding: 1em;
   border-radius: 4px;
 }
+
+.supTagTemp {
+  vertical-align: top;
+  position: relative;
+  top: 0.3em;
+}

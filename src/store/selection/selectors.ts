@@ -8,6 +8,11 @@ export const getRootSelectionsSelector = (state: SelectionState) => {
   return get(state, 'selections');
 };
 
+export const selectedCelciusSelector = createSelector(
+  getRootSelectionsSelector,
+  (selectionState): Selections['celcius'] => get(selectionState, 'celcius')
+);
+
 export const selectedCountryCodeSelector = createSelector(
   getRootSelectionsSelector,
   (selectionState): Selections['countryCode'] =>

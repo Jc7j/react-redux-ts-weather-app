@@ -7,6 +7,7 @@ import {
 } from 'store/selection/selectors';
 
 import Dropdown from 'components/Dropdown';
+import TempButton from 'components/TempButton';
 
 import 'styles/Forecast.css';
 
@@ -20,6 +21,7 @@ const Forecast = () => {
       <h2>
         Weather <strong>Forecast</strong>
       </h2>
+      <TempButton />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 declare module 'MyModels' {
   export type Selections = {
+    celcius: boolean;
     countryCode: string;
     selectedCountry: {
       countryId: string;

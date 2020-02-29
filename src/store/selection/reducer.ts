@@ -4,6 +4,7 @@ import { createReducer, StateType } from 'typesafe-actions';
 import { SELECTED_INITIAL_STATE } from 'models/initialStates';
 
 import {
+  celciusSelected,
   selectedCity,
   selectedCountry,
   selectedCountryCode,
@@ -15,6 +16,12 @@ export const selectionsReducer = createReducer<
   Selections,
   SelectionActionCreators
 >(SELECTED_INITIAL_STATE)
+  .handleAction(celciusSelected, state => {
+    return {
+      ...state,
+      celcius: !state.celcius
+    };
+  })
   .handleAction(selectedCountry, (state, action) => {
     return {
       ...state,

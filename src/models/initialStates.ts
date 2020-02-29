@@ -1,4 +1,4 @@
-import { WeatherApiModel } from 'MyModels';
+import { WeatherApiModel, Selections } from 'MyModels';
 export const FORECAST_INITAL_STATE: WeatherApiModel = {
   cod: '',
   message: 0,
@@ -19,7 +19,8 @@ export const FORECAST_INITAL_STATE: WeatherApiModel = {
   }
 };
 
-export const SELECTED_INITIAL_STATE = {
+export const SELECTED_INITIAL_STATE: Selections = {
+  celcius: true,
   countryCode: 'US',
   selectedCountry: {
     countryId: '231',

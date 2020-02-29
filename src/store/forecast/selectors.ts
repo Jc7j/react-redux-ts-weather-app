@@ -17,3 +17,8 @@ export const forecastCitySelector = createSelector(
   getRootForecastSelector,
   (forecastState): WeatherApiModel['city'] => get(forecastState, 'city')
 );
+
+export const forecastListSelector = createSelector(
+  getRootForecastSelector,
+  (forecastState): WeatherApiModel['list'] => get(forecastState, 'list')
+);

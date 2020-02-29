@@ -23,14 +23,14 @@ declare module 'MyModels' {
       dt: number;
       main: {
         temp: number;
-        feelsLike: number;
-        tempMin: number;
-        tempMax: number;
+        feels_like: number;
+        temp_min: number;
+        temp_max: number;
         pressure: number;
-        seaLevel: number;
-        grndLevel: number;
+        sea_level: number;
+        grnd_level: number;
         humidity: number;
-        tempKf: number;
+        temp_kf: number;
       };
       weather: {
         id: number;
@@ -48,7 +48,7 @@ declare module 'MyModels' {
       sys: {
         pod: string;
       };
-      dtTxt: string;
+      dt_txt: string;
     }[];
     city: {
       id: number;

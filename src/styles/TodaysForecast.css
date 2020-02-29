@@ -1,6 +1,7 @@
 .todaysForecastContainer {
   position: relative;
   align-self: center;
+  top: -3rem;
 }
 
 .subheadingText {

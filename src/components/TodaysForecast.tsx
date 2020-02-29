@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { weatherIconDisplay, kelvinToCelcius, kelvinToFahrenheit } from 'utils';
+import { kelvinToCelcius, kelvinToFahrenheit } from 'utils';
 
 import {
   forecastCitySelector,
@@ -12,6 +12,7 @@ import {
   selectedStateSelector
 } from 'store/selection/selectors';
 
+import IconDisplay from './IconDisplay';
 import SupTag from './SupTag';
 
 import 'styles/TodaysForecast.css';
@@ -29,8 +30,7 @@ const TodaysForecast = () => {
 
   return (
     <div className="todaysForecastContainer">
-      <img alt="Weather Icon" src={weatherIconDisplay(icon)} />
-      <h3>Today</h3>
+      <IconDisplay top={1.5} icon={icon} />
       <p className="subheadingText">{format(new Date(), 'eee e, LLL')}</p>
       <span className="todaysTemp">
         {selectedCelcius

@@ -7,6 +7,7 @@ import {
 } from 'store/selection/selectors';
 
 import Dropdown from 'components/Dropdown';
+import HourlyWeather from 'components/HourlyWeather';
 import TempButton from 'components/TempButton';
 
 import 'styles/Forecast.css';
@@ -19,9 +20,9 @@ const Forecast = () => {
     <div className="forecastContainer">
       <Dropdown countryId={countryId.countryId} stateId={stateId.stateId} />
       <h2>
-        Weather <strong>Forecast</strong>
+        Weather <strong>Forecast</strong> <TempButton />
       </h2>
-      <TempButton />
+      <HourlyWeather />
     </div>
   );
 };

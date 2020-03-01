@@ -1,0 +1,15 @@
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+li {
+  list-style-type: none;
+}

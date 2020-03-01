@@ -3,9 +3,9 @@ import React from 'react';
 import { useTabs } from './Tabs';
 
 export interface TabProps {
-  key: number;
+  key?: number;
   label: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Tab = (props: TabProps) => {

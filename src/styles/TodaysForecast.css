@@ -11,6 +11,8 @@
 .todaysTemp {
   font-size: 6em;
   letter-spacing: 3px;
+  position: relative;
+  left: 1rem;
 }
 
 img {

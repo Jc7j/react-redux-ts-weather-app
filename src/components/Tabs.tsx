@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Tab, { TabProps } from './Tab';
+import TabsPanel, { TabsPanelProps } from './TabsPanel';
 
 interface TabsContext {
   activeTab: string;
@@ -8,8 +9,8 @@ interface TabsContext {
 }
 
 interface TabsProps {
-  Tab: TabProps;
-  // Panel;
+  Tab?: TabProps;
+  TabsPanel?: TabsPanelProps;
   children: React.ReactNode;
 }
 
@@ -47,6 +48,6 @@ export const useTabs = (): TabsContext => {
 };
 
 Tabs.Tab = Tab;
-// Tabs.Panel = Panel;
+Tabs.TabsPanel = TabsPanel;
 
 export default Tabs;

@@ -13,11 +13,9 @@ const Tab = (props: TabProps) => {
   const { setActiveTab } = useTabs();
 
   return (
-    <div>
-      <button key={key} onClick={() => setActiveTab(label)}>
-        <li key={key}>{children}</li>
-      </button>
-    </div>
+    <button key={key} onClick={() => setActiveTab(label)}>
+      {children}
+    </button>
   );
 };
 

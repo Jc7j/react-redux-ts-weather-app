@@ -13,3 +13,8 @@ button {
 li {
   list-style-type: none;
 }
+
+.listStyles {
+  display: flex;
+  flex-direction: column;
+}

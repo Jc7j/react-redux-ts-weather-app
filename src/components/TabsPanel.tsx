@@ -10,7 +10,7 @@ export interface TabsPanelProps {
 export const TabsPanel = (props: TabsPanelProps) => {
   const { children, label } = props;
   const { activeTab } = useTabs();
-  return activeTab === label ? <>{children} </> : null;
+  return activeTab === label ? <div>{children} </div> : null;
 };
 
 export default TabsPanel;

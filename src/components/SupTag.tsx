@@ -21,7 +21,7 @@ const SupTag = (props: SupTagProps) => {
     <span className="supTagContainer">
       <sup
         className="oTagStyle"
-        style={{ fontSize: `${oTagSize}rem`, top: `${oTagTopPos}rem` }}
+        style={{ fontSize: `${oTagSize}em`, top: `${oTagTopPos}em` }}
       >
         o
       </sup>

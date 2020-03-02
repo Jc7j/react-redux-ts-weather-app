@@ -4,7 +4,9 @@
   width: 100%;
 }
 
-h2 {
+.forecastHeading {
+  position: relative;
+  top: 3rem;
   text-align: left;
   font-weight: 300;
   letter-spacing: 2px;

@@ -1,20 +1,34 @@
-ul {
+.hourlyWeatherContainer {
+  position: relative;
+  top: 5rem;
+}
+
+.tabContainer {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding: 0;
 }
 
-button {
+.tabContainer > button {
   background-color: transparent;
-  border: none;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 4px;
+  padding: 1em;
 }
 
-li {
+.listContainer {
+  display: flex;
+  flex-direction: column;
+}
+.listStyles {
   list-style-type: none;
 }
 
 .listStyles {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  /* padding-right: 2em; */
 }
+/* 
+.listStyles > img {
+  padding-right: 2em;
+} */

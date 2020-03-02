@@ -10,7 +10,7 @@ import Dropdown from 'components/Dropdown';
 import HourlyWeather from 'components/HourlyWeather';
 import TempButton from 'components/TempButton';
 
-import 'styles/Forecast.css';
+import 'styles/ForecastPage.css';
 
 const Forecast = () => {
   const stateId = useSelector(selectedStateSelector);
@@ -19,7 +19,7 @@ const Forecast = () => {
   return (
     <div className="forecastContainer">
       <Dropdown countryId={countryId.countryId} stateId={stateId.stateId} />
-      <h2>
+      <h2 className="forecastHeading">
         Weather <strong>Forecast</strong> <TempButton />
       </h2>
       <HourlyWeather />

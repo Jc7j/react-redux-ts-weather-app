@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useTabs } from './Tabs';
 
+import 'styles/Tab.css';
+
 export interface TabProps {
   key?: number;
   label: string;

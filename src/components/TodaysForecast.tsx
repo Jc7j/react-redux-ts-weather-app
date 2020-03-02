@@ -32,17 +32,19 @@ const TodaysForecast = () => {
       <span className="todaysTemp">
         <TempConditional temperature={temp} toFixed={0} />
         <SupTag
-          oTagSize={1.5}
-          oTagTopPos={1}
+          oTagSize={0.4}
+          oTagTopPos={-0.3}
           tempLetterSize={2}
-          tempLetterTopPos={1}
+          tempLetterTopPos={0}
         />
       </span>
       <p className="subheadingText">
         {city.name}, {stateName}
       </p>
-      {`Feels Like `}
-      <TempConditional temperature={feels_like} toFixed={0} />
+      <p className="subheadingText">
+        {`Feels Like `}
+        <TempConditional temperature={feels_like} toFixed={0} />
+      </p>
     </div>
   );
 };

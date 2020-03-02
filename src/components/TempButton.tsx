@@ -17,7 +17,7 @@ const TempButton = () => {
 
   return (
     <button className="tempButtonContainer" onClick={onClickHandler}>
-      {selectedCelcius ? 'Switch to Fahrenheit' : 'Switch to Celcius'}
+      {selectedCelcius ? 'Fahrenheit' : 'Celcius'}
     </button>
   );
 };

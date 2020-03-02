@@ -11,3 +11,10 @@
   font-weight: 300;
   letter-spacing: 2px;
 }
+
+.forecastHeading > button {
+  background-color: #68a0f3;
+  margin-left: 10em;
+  color: white;
+  font-size: 0.6em;
+}

@@ -8,9 +8,11 @@ const TodayPage = () => {
   return (
     <div className="todayContainer">
       <div className="todayInnerContainer">
-        <div className="todayHeader">Today</div>
+        <div className="todayHeader">
+          <strong>Todays Weather</strong>
+        </div>
         <TodaysForecast />
-        <div className="todayFooter">Bye</div>
+        <div className="todayFooter"></div>
       </div>
     </div>
   );

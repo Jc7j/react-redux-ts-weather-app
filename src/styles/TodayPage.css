@@ -19,7 +19,8 @@
   position: relative;
   padding: 2em;
   font-size: 2em;
-  top: -3rem;
+  top: 1em;
+  letter-spacing: 4px;
 }
 
 .todayBody {

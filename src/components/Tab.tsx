@@ -15,7 +15,7 @@ const Tab = (props: TabProps) => {
   const { setActiveTab } = useTabs();
 
   return (
-    <button key={key} onClick={() => setActiveTab(label)}>
+    <button className="tabStyles" key={key} onClick={() => setActiveTab(label)}>
       {children}
     </button>
   );

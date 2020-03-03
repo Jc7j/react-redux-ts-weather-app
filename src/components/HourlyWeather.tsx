@@ -5,14 +5,14 @@ import { getTimeOrDay, getHour } from 'utils';
 
 import { forecastListSelector } from 'store/forecast/selectors';
 
+import IconDisplay from './IconDisplay';
+import SupTag from './SupTag';
 import Tab from './Tab';
 import Tabs from './Tabs';
 import TabsPanel from './TabsPanel';
+import TempConditional from './TempConditional';
 
 import 'styles/HourlyWeather.css';
-import TempConditional from './TempConditional';
-import SupTag from './SupTag';
-import IconDisplay from './IconDisplay';
 
 const HourlyWeather = () => {
   const forecastList = useSelector(forecastListSelector);

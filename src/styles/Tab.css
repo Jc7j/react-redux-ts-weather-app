@@ -1,3 +1,24 @@
 .tabContainer {
   display: inline;
 }
+
+.tabStyles:focus {
+  outline: 0px;
+  border-bottom: 2px solid #337ab7;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: #444;
+}
+
+.tabStyles {
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #eee;
+  transition: all 0.5s;
+  color: #aaa;
+  padding: 1em;
+  cursor: pointer;
+}

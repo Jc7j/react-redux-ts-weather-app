@@ -10,3 +10,4 @@ yarn install
 yarn start
 ```
 
+This weather app was created as a fun side project. Uses axios to fetch data from https://openweathermap.org/api, typescript for static typing and redux for state management.
